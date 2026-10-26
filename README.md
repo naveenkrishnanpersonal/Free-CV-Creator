@@ -1,6 +1,19 @@
 # CV Studio
 
-![CV Studio](public/og-image.jpg)
+<p align="center">
+  <a href="https://naveenkrishnanpersonal.github.io/Free-CV-Creator/">
+    <img src="./public/preview.jpg" alt="On Road Driver Website Preview">
+  </a>
+</p>
+
+<p align="center">
+  <a href="https://naveenkrishnanpersonal.github.io/Free-CV-Creator/">
+    <img src="https://img.shields.io/badge/🌐_Live_Demo-Visit_Website-0f6b85?style=for-the-badge" alt="Live Demo">
+  </a>
+  <img src="https://img.shields.io/badge/React-19-61DAFB?style=for-the-badge&logo=react&logoColor=black" alt="React 19">
+  <img src="https://img.shields.io/badge/Vite-7-646CFF?style=for-the-badge&logo=vite&logoColor=white" alt="Vite">
+  <img src="https://img.shields.io/badge/License-MIT-green?style=for-the-badge" alt="MIT License">
+</p>
 
 A local-first CV/resume builder with a real renderer, complete content editing, and a live A4/Letter preview. Built with React 19, TypeScript, Vite and Tailwind 4.
 
