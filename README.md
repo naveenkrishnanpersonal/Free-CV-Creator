@@ -2,7 +2,7 @@
 
 <p align="center">
   <a href="https://naveenkrishnanpersonal.github.io/Free-CV-Creator/">
-    <img src="./public/preview.jpg" alt="On Road Driver Website Preview">
+    <img src="./public/preview.png" alt="On Road Driver Website Preview">
   </a>
 </p>
 
