@@ -1,0 +1,274 @@
+@import 'tailwindcss';
+
+@custom-variant dark (&:where(.dark, .dark *));
+@custom-variant short (@media (max-height: 820px));
+
+:root {
+  color-scheme: light;
+  --canvas: #f3f6fb;
+  --canvas-deep: #e9eef6;
+  --surface: #ffffff;
+  --surface-raised: #ffffff;
+  --surface-muted: #f6f8fc;
+  --ink: #0b1524;
+  --ink-soft: #25334a;
+  --muted: #5d6b80;
+  --faint: #616e83;
+  --line: #dfe6f0;
+  --line-strong: #c8d3e3;
+  --accent: #0b6edb;
+  --accent-hover: #095bb5;
+  --accent-solid: #0b6edb;
+  --accent-solid-hover: #095bb5;
+  --accent-soft: #e8f2ff;
+  --accent-active: #e3efff;
+  --accent-ink: #ffffff;
+  --violet: #7c3aed;
+  --violet-solid: #7c3aed;
+  --violet-soft: #f1ebfe;
+  --emerald: #0e9f6e;
+  --emerald-solid: #0e9f6e;
+  --emerald-soft: #e6f7f0;
+  --orange: #c2710a;
+  --orange-solid: #d97706;
+  --orange-soft: #fef3e2;
+  --magenta: #db2777;
+  --magenta-solid: #db2777;
+  --magenta-soft: #fdebf3;
+  --hero-a: #eaf3ff;
+  --hero-b: #f5f9ff;
+  --hero-c: #ffffff;
+  --success: #1b7f5b;
+  --success-soft: #e7f4ee;
+  --warning: #a15c00;
+  --warning-soft: #fdf3e3;
+  --danger: #b3261e;
+  --danger-soft: #fbecea;
+  --paper: #ffffff;
+  --shadow-card: 0 1px 2px rgb(11 21 36 / 0.04), 0 10px 30px -18px rgb(11 21 36 / 0.16);
+  --shadow-float: 0 22px 60px -24px rgb(11 21 36 / 0.28), 0 2px 8px rgb(11 21 36 / 0.05);
+}
+
+.dark {
+  color-scheme: dark;
+  --canvas: #080d15;
+  --canvas-deep: #05090f;
+  --surface: #0b111b;
+  --surface-raised: #101927;
+  --surface-muted: #0d1521;
+  --ink: #f2f6fc;
+  --ink-soft: #d6e0ee;
+  --muted: #94a3b8;
+  --faint: #7b8ca3;
+  --line: #202c3d;
+  --line-strong: #2d3b50;
+  --accent: #1688ff;
+  --accent-hover: #3d9cff;
+  --accent-solid: #0b6fd8;
+  --accent-solid-hover: #1688ff;
+  --accent-soft: #0e2138;
+  --accent-active: #16344f;
+  --accent-ink: #ffffff;
+  --violet: #a78bfa;
+  --violet-solid: #7c3aed;
+  --violet-soft: #1b1735;
+  --emerald: #34d399;
+  --emerald-solid: #0e9f6e;
+  --emerald-soft: #0d2721;
+  --orange: #fbbf24;
+  --orange-solid: #d97706;
+  --orange-soft: #2a2011;
+  --magenta: #f472b6;
+  --magenta-solid: #db2777;
+  --magenta-soft: #2c1524;
+  --hero-a: #0d2038;
+  --hero-b: #0a1627;
+  --hero-c: #081120;
+  --success: #34d399;
+  --success-soft: #0d2721;
+  --warning: #fbbf24;
+  --warning-soft: #2a2011;
+  --danger: #f87171;
+  --danger-soft: #2c171a;
+  --paper: #ffffff;
+  --shadow-card: 0 1px 2px rgb(0 0 0 / 0.45), 0 18px 40px -26px rgb(0 0 0 / 0.85);
+  --shadow-float: 0 30px 80px -30px rgb(0 0 0 / 0.9), 0 2px 10px rgb(0 0 0 / 0.5);
+}
+
+@theme inline {
+  --color-canvas: var(--canvas);
+  --color-canvas-deep: var(--canvas-deep);
+  --color-surface: var(--surface);
+  --color-surface-raised: var(--surface-raised);
+  --color-surface-muted: var(--surface-muted);
+  --color-ink: var(--ink);
+  --color-ink-soft: var(--ink-soft);
+  --color-muted: var(--muted);
+  --color-faint: var(--faint);
+  --color-line: var(--line);
+  --color-line-strong: var(--line-strong);
+  --color-accent: var(--accent);
+  --color-accent-hover: var(--accent-hover);
+  --color-accent-solid: var(--accent-solid);
+  --color-accent-solid-hover: var(--accent-solid-hover);
+  --color-accent-soft: var(--accent-soft);
+  --color-accent-active: var(--accent-active);
+  --color-accent-ink: var(--accent-ink);
+  --color-violet: var(--violet);
+  --color-violet-solid: var(--violet-solid);
+  --color-violet-soft: var(--violet-soft);
+  --color-emerald: var(--emerald);
+  --color-emerald-solid: var(--emerald-solid);
+  --color-emerald-soft: var(--emerald-soft);
+  --color-orange: var(--orange);
+  --color-orange-solid: var(--orange-solid);
+  --color-orange-soft: var(--orange-soft);
+  --color-magenta: var(--magenta);
+  --color-magenta-solid: var(--magenta-solid);
+  --color-magenta-soft: var(--magenta-soft);
+  --color-success: var(--success);
+  --color-success-soft: var(--success-soft);
+  --color-warning: var(--warning);
+  --color-warning-soft: var(--warning-soft);
+  --color-danger: var(--danger);
+  --color-danger-soft: var(--danger-soft);
+  --color-paper: var(--paper);
+
+  --font-sans: 'Inter', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --font-display: 'Newsreader', Georgia, 'Times New Roman', serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+
+  --radius-card: 14px;
+  --shadow-card: var(--shadow-card);
+  --shadow-float: var(--shadow-float);
+  --breakpoint-3xl: 90rem;
+}
+
+@layer base {
+  * {
+    border-color: var(--line);
+  }
+
+  html {
+    -webkit-text-size-adjust: 100%;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    margin: 0;
+    min-width: 320px;
+    min-height: 100dvh;
+    background: var(--canvas);
+    color: var(--ink);
+    font-family: var(--font-sans);
+    font-size: 14px;
+    line-height: 1.5;
+  }
+
+  button,
+  input,
+  textarea,
+  select {
+    font: inherit;
+    color: inherit;
+  }
+
+  button {
+    cursor: pointer;
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 2px;
+  }
+
+  ::selection {
+    background: color-mix(in srgb, var(--accent) 22%, transparent);
+  }
+
+  ::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+  }
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: color-mix(in srgb, var(--muted) 26%, transparent);
+    border-radius: 999px;
+    border: 3px solid transparent;
+    background-clip: content-box;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: color-mix(in srgb, var(--muted) 42%, transparent);
+    background-clip: content-box;
+  }
+}
+
+@layer utilities {
+  .tabular {
+    font-variant-numeric: tabular-nums;
+  }
+
+  .hide-scrollbar {
+    scrollbar-width: none;
+  }
+  .hide-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .animate-fade-up {
+    animation: fade-up 0.35s cubic-bezier(0.22, 1, 0.36, 1) both;
+  }
+
+  .animate-fade-in {
+    animation: fade-in 0.2s ease-out both;
+  }
+}
+
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes scale-in {
+  from {
+    opacity: 0;
+    transform: scale(0.97);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

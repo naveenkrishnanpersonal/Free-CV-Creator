@@ -1,0 +1,72 @@
+/*
+ * Print pipeline: the editor is hidden, the print layer is shown, and the CV
+ * prints at its real paper size. The @page size is emitted per document by
+ * features/export/PrintLayer.tsx.
+ */
+
+.print-layer {
+  display: none;
+}
+
+@media print {
+  html,
+  body {
+    height: auto !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    background: #fff !important;
+  }
+
+  /* Everything React renders outside the print layer: app shell, dialogs, toasts. */
+  body > div:not(.print-layer) {
+    display: none !important;
+  }
+
+  .print-layer {
+    display: block !important;
+  }
+
+  .print-layer .cv-page {
+    width: var(--cv-page-width);
+    min-height: var(--cv-page-height);
+    box-shadow: none !important;
+    break-inside: auto;
+    -webkit-box-decoration-break: clone;
+    box-decoration-break: clone;
+  }
+
+  .print-layer .cv-section,
+  .print-layer .cv-entry,
+  .print-layer .cv-skill-group,
+  .print-layer .cv-inline-item {
+    break-inside: avoid;
+  }
+
+  .print-layer .cv-section-title {
+    break-after: avoid;
+  }
+
+  /* No editing affordances in the exported document. */
+  .print-layer .cv-tool,
+  .print-layer .cv-section-tools,
+  .print-layer .cv-entry-tools,
+  .print-layer .cv-line-add,
+  .print-layer .cv-line-remove,
+  .print-layer .cv-tag-remove,
+  .print-layer .cv-inline-remove,
+  .print-layer .cv-section-tail,
+  .print-layer .cv-inline-add-row,
+  .print-layer .cv-add-section-row {
+    display: none !important;
+  }
+
+  .print-layer .cv-editable {
+    background: none !important;
+    box-shadow: none !important;
+  }
+
+  .print-layer a {
+    color: var(--cv-link);
+    text-decoration: none;
+  }
+}

@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="color-scheme" content="dark light" />
+    <meta name="theme-color" content="#080d15" />
+
+    <title>CV Studio — Free local-first CV builder</title>
+    <meta
+      name="description"
+      content="CV Studio is a free, local-first CV and resume builder with 20 professional templates, live editing, autosave, and clean A4 or US Letter PDF export. No account or server required."
+    />
+    <meta name="application-name" content="CV Studio" />
+    <meta name="author" content="CV Studio" />
+    <meta
+      name="robots"
+      content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"
+    />
+    <meta name="referrer" content="strict-origin-when-cross-origin" />
+    <meta name="keywords" content="CV builder, resume builder, free CV maker, local-first resume editor, ATS-friendly templates" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="CV Studio" />
+    <meta property="og:title" content="CV Studio — Free local-first CV builder" />
+    <meta
+      property="og:description"
+      content="Build a professional CV in minutes with modern templates, full design control and PDF export. Everything stays in your browser."
+    />
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:url" content="./" />
+    <meta property="og:image" content="./og-image.jpg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="CV Studio, a local-first CV builder" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="CV Studio — Free local-first CV builder" />
+    <meta
+      name="twitter:description"
+      content="Build a professional CV in minutes with modern templates, full design control and PDF export. Everything stays in your browser."
+    />
+    <meta name="twitter:image" content="./og-image.jpg" />
+
+    <link rel="icon" type="image/svg+xml" href="./favicon.svg" />
+    <link rel="apple-touch-icon" sizes="180x180" href="./icon-180.png" />
+    <link rel="manifest" href="./manifest.webmanifest" />
+    <link rel="image_src" href="./og-image.jpg" />
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "CV Studio",
+        "applicationCategory": "BusinessApplication",
+        "operatingSystem": "Any",
+        "browserRequirements": "Requires JavaScript",
+        "description": "A free, local-first CV and resume builder with professional templates, live editing and PDF export.",
+        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+        "isAccessibleForFree": true,
+        "featureList": [
+          "20 professional CV templates",
+          "Live A4 and US Letter preview",
+          "PDF export",
+          "Local browser storage",
+          "JSON backup export and restore"
+        ]
+      }
+    </script>
+
+    <script>
+      // Apply the saved theme before paint. Dark is the default on first visit.
+      try {
+        var stored = JSON.parse(localStorage.getItem('cv-studio-ui') || 'null')
+        var theme = stored && stored.state && stored.state.theme
+        if (theme !== 'light') {
+          document.documentElement.classList.add('dark')
+        }
+      } catch {
+        /* Storage can be unavailable in private or restricted contexts. */
+      }
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <noscript>
+      <div
+        style="
+          min-height: 100dvh;
+          background: #080d15;
+          color: #f2f6fc;
+          padding: 56px 24px;
+          font-family: system-ui, -apple-system, 'Segoe UI', sans-serif;
+          line-height: 1.6;
+        "
+      >
+        <main style="max-width: 640px; margin: 0 auto">
+          <h1 style="font-size: 32px; line-height: 1.15; margin: 0 0 16px">CV Studio</h1>
+          <p style="color: #94a3b8; margin: 0 0 12px">
+            A free, local-first CV builder with professional templates, live editing and clean PDF
+            export.
+          </p>
+          <p style="color: #94a3b8; margin: 0">
+            Enable JavaScript to open the editor. Your documents are stored in your browser and are
+            never uploaded.
+          </p>
+        </main>
+      </div>
+    </noscript>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>

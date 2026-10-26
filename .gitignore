@@ -1,0 +1,14 @@
+node_modules
+dist
+dist-ssr
+.preview-site
+.vscode
+*.local
+.env
+.env.*
+!.env.example
+.DS_Store
+Thumbs.db
+*.log
+playwright-report
+test-results
