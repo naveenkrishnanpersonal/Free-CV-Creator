@@ -821,14 +821,24 @@ function CvSection({
   )
 }
 
-export function CvDocument({ doc, className }: { doc: ResumeDoc; className?: string }) {
+export function CvDocument({
+  doc,
+  className,
+  fitScale = 1,
+}: {
+  doc: ResumeDoc
+  className?: string
+  fitScale?: number
+}) {
   const dims = paperDimensions(doc.settings.paper)
   const edit = useCvEdit()
   const editing = edit.enabled
   const vars: CvVars = {
     ...cvStyleVars(doc.style),
-    '--cv-page-width': `${dims.widthMm}mm`,
+    '--cv-page-width': `${dims.widthMm / fitScale}mm`,
     '--cv-page-height': `${dims.heightMm}mm`,
+    '--cv-page-min-height': fitScale >= 0.999 ? `${dims.heightMm}mm` : '0mm',
+    '--cv-fit-scale': fitScale,
   }
 
   const sections = doc.sections.filter(

@@ -72,6 +72,7 @@ export const DEFAULT_STYLE: StyleConfig = {
 
 export const DEFAULT_SETTINGS: DocSettings = {
   paper: { size: 'A4', widthMm: 210, heightMm: 297 },
+  pageCount: 1,
   pageNumbers: 'page-of-total',
   runningHeader: true,
   footerText: '',

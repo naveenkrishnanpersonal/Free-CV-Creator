@@ -14,6 +14,17 @@ describe('document schema', () => {
     expect(result.success).toBe(true)
   })
 
+  it('defaults older documents to one page and allows up to three pages', () => {
+    const doc = createBlankDoc()
+    const { pageCount: _pageCount, ...legacySettings } = doc.settings
+
+    expect(docSchema.parse({ ...doc, settings: legacySettings }).settings.pageCount).toBe(1)
+    expect(docSchema.parse({ ...doc, settings: { ...doc.settings, pageCount: 3 } }).settings.pageCount)
+      .toBe(3)
+    expect(docSchema.safeParse({ ...doc, settings: { ...doc.settings, pageCount: 4 } }).success)
+      .toBe(false)
+  })
+
   it('rejects invalid date formats', () => {
     const doc = createBlankDoc()
     doc.sections[1].items[0].start = 'March 2022'

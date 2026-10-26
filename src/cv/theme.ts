@@ -18,6 +18,22 @@ export function mmToPx(mm: number): number {
   return (mm / MM_PER_INCH) * CSS_PX_PER_INCH
 }
 
+export function fitScaleForPages(
+  contentHeightPx: number,
+  pageHeightPx: number,
+  pageCount: number,
+): number {
+  if (
+    ![contentHeightPx, pageHeightPx, pageCount].every(Number.isFinite) ||
+    contentHeightPx <= 0 ||
+    pageHeightPx <= 0 ||
+    pageCount <= 0
+  ) {
+    return 1
+  }
+  return Math.min(1, (pageHeightPx * pageCount) / contentHeightPx)
+}
+
 export function cvStyleVars(style: StyleConfig): CvVars {
   const { typography, colors, header, section, entry, page } = style
   return {

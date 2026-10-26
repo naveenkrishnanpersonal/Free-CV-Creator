@@ -51,7 +51,7 @@ The end-to-end suite uses the installed Google Chrome (`channel: 'chrome'`). It 
 - Photo: upload (resized to 900 px, stored in the document), circle/square shape, grayscale, show/hide, and crop controls — zoom 100–300% plus horizontal and vertical framing, with a reset.
 - Style gallery: 20 designed presets across single-column, sidebar and header-band layouts, with 20 live miniature previews, category filters, ATS badges and one-click apply. Content is never modified.
 - Style Lab (Design): live token editing for layout and sidebar sections, page margins and paper size, body/heading/name fonts, sizes, line height, weight, case and tracking, all 11 colours with a picker and hex field, header alignment/contact layout/photo size/icons, heading style and spacing, entry layout/bullets/indent, and scoped custom CSS with a live preview.
-- PDF export: guided print sheet (Save as PDF, no margins, 100% scale, background graphics on, headers/footers off), a print-only render at the document's exact paper size, hidden editor chrome, page-break rules that keep entries together, and padding repeated on continuation pages. JSON export/import remains for backups.
+- PDF export: choose to fit content to 1, 2, or 3 pages; guided print sheet (Save as PDF, no margins, 100% scale, background graphics on, headers/footers off), a print-only render at the document's exact paper size, hidden editor chrome, page-break rules that keep entries together, and padding repeated on continuation pages. JSON export/import remains for backups.
 - Live preview: actual CV renderer (not a mock), A4/US Letter, zoom, fit, page geometry, custom CSS scoping in the renderer.
 - Persistence: IndexedDB autosave (650ms), save status, unload/pagehide flush, undo/redo with keystroke coalescing, corrupt-record detection.
 - App: light/dark theme, responsive editor with mobile preview dialog, keyboard shortcuts (`Ctrl/Cmd+Z`, `Shift+Ctrl/Cmd+Z`, `Ctrl/Cmd+S`), accessible labels, error boundary, toasts.
@@ -72,7 +72,7 @@ src/
 e2e/            Playwright browser tests
 ```
 
-The hard rule: `src/cv` imports no app UI or store code. It receives `{ doc }` and renders. That is what will keep the preview, thumbnails and PDF identical.
+The hard rule: `src/cv` imports no app UI or store code. It receives `{ doc }` and renders. The preview, thumbnails and PDF share this renderer; PDF export can apply an optional scale to fit the selected page count.
 
 ## Deploy
 

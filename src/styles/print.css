@@ -5,7 +5,11 @@
  */
 
 .print-layer {
-  display: none;
+  position: fixed;
+  top: 0;
+  left: -100000px;
+  display: block;
+  visibility: hidden;
 }
 
 @media print {
@@ -23,7 +27,8 @@
   }
 
   .print-layer {
-    display: block !important;
+    position: static !important;
+    visibility: visible !important;
   }
 
   .print-layer .cv-page {

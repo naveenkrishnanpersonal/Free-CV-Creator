@@ -4,6 +4,7 @@ import { useState } from 'react'
 import { Button } from '@/components/ui/Button'
 import { paperDimensions } from '@/cv/theme'
 import type { ResumeDoc } from '@/lib/schema'
+import { useDocStore } from '@/store/docStore'
 
 const STEPS = [
   'Destination: Save as PDF',
@@ -23,6 +24,7 @@ export function ExportDialog({
   doc: ResumeDoc
 }) {
   const [printing, setPrinting] = useState(false)
+  const updateSettings = useDocStore((state) => state.updateSettings)
   const dims = paperDimensions(doc.settings.paper)
   const paperLabel =
     doc.settings.paper.size === 'Letter'
@@ -63,8 +65,8 @@ export function ExportDialog({
                 </Dialog.Title>
               </div>
               <Dialog.Description className="mt-1.5 text-[12px] leading-relaxed text-muted">
-                Your browser prints the same page you see: {paperLabel}, real text, selectable and
-                ATS-readable.
+                Your browser prints selectable, ATS-readable text on {paperLabel}, fitted to{' '}
+                {doc.settings.pageCount} {doc.settings.pageCount === 1 ? 'page' : 'pages'}.
               </Dialog.Description>
             </div>
             <Dialog.Close asChild>
@@ -75,7 +77,26 @@ export function ExportDialog({
           </div>
 
           <div className="px-5 py-4">
-            <p className="text-[12px] font-semibold text-ink">In the print dialog</p>
+            <label className="flex items-center justify-between gap-3 text-[12px] font-semibold text-ink">
+              <span>Fit CV to pages</span>
+              <select
+                value={doc.settings.pageCount}
+                onChange={(event) => {
+                  const pageCount = Number(event.target.value)
+                  if (pageCount !== 1 && pageCount !== 2 && pageCount !== 3) return
+                  updateSettings((draft) => {
+                    draft.pageCount = pageCount
+                  })
+                }}
+                aria-label="Fit CV to pages"
+                className="h-8 rounded border border-line bg-surface px-2 text-[12px] font-normal text-ink outline-none focus:border-accent"
+              >
+                <option value={1}>1 page</option>
+                <option value={2}>2 pages</option>
+                <option value={3}>3 pages</option>
+              </select>
+            </label>
+            <p className="mt-4 text-[12px] font-semibold text-ink">In the print dialog</p>
             <ul className="mt-2 space-y-1.5">
               {STEPS.map((step) => (
                 <li key={step} className="flex items-start gap-2 text-[12px] leading-snug text-muted">
@@ -85,8 +106,8 @@ export function ExportDialog({
               ))}
             </ul>
             <p className="mt-3 rounded-md bg-surface-muted px-3 py-2 text-[11.5px] leading-relaxed text-faint">
-              Background graphics keeps coloured sidebars and header bands. With it off the PDF
-              still prints, but in plain white.
+              Content is scaled to fit the selected page count. Background graphics keeps coloured
+              sidebars and header bands.
             </p>
           </div>
 

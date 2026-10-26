@@ -434,16 +434,27 @@ test('PDF export prints the CV at paper size with no editor chrome', async ({ pa
   await expect(dialog.getByText('Export a PDF')).toBeVisible()
   await expect(dialog.getByText('Destination: Save as PDF')).toBeVisible()
   await expect(dialog.getByText('Background graphics: ON')).toBeVisible()
+  await dialog.getByLabel('Fit CV to pages').selectOption('1')
 
   await page.emulateMedia({ media: 'print' })
   await expect(page.locator('#root')).toBeHidden()
   await expect(page.locator('.print-layer .cv-name')).toBeVisible()
   await expect(page.locator('.print-layer .cv-tool')).toHaveCount(0)
+  await expect
+    .poll(() =>
+      page.locator('.print-layer .cv').evaluate((element) => Number(getComputedStyle(element).zoom)),
+    )
+    .toBeLessThan(1)
+  await expect
+    .poll(() =>
+      page.locator('.print-layer .cv').evaluate((element) => element.getBoundingClientRect().height),
+    )
+    .toBeGreaterThan(1_000)
 
   const a4 = await PDFDocument.load(
     await page.pdf({ preferCSSPageSize: true, printBackground: true }),
   )
-  expect(a4.getPageCount()).toBeGreaterThanOrEqual(1)
+  expect(a4.getPageCount()).toBe(1)
   expect(Math.round(a4.getPage(0).getWidth())).toBe(595)
   expect(Math.round(a4.getPage(0).getHeight())).toBe(842)
 

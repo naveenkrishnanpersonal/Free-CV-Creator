@@ -184,6 +184,7 @@ export const paperSchema = z.object({
 
 export const settingsSchema = z.object({
   paper: paperSchema,
+  pageCount: z.union([z.literal(1), z.literal(2), z.literal(3)]).default(1),
   pageNumbers: z.enum(['none', 'page', 'page-of-total']),
   runningHeader: z.boolean(),
   footerText: z.string().max(140),
