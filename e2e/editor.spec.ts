@@ -230,7 +230,7 @@ test('reorder sections freely: drag in the rail, move on the page, persists', as
       elements.map((element) => element.getAttribute('data-kind')),
     )
 
-  expect(await order()).toEqual([
+  await expect.poll(order).toEqual([
     'summary',
     'experience',
     'education',
