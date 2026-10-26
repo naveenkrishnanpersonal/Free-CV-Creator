@@ -2,7 +2,7 @@
 
 <p align="center">
   <a href="https://naveenkrishnanpersonal.github.io/Free-CV-Creator/">
-    <img src="./public/preview.png" alt="On Road Driver Website Preview">
+    <img src="./public/preview.png" alt="CV Studio website preview">
   </a>
 </p>
 
@@ -11,11 +11,17 @@
     <img src="https://img.shields.io/badge/🌐_Live_Demo-Visit_Website-0f6b85?style=for-the-badge" alt="Live Demo">
   </a>
   <img src="https://img.shields.io/badge/React-19-61DAFB?style=for-the-badge&logo=react&logoColor=black" alt="React 19">
-  <img src="https://img.shields.io/badge/Vite-7-646CFF?style=for-the-badge&logo=vite&logoColor=white" alt="Vite">
+  <img src="https://img.shields.io/badge/TypeScript-7-3178C6?style=for-the-badge&logo=typescript&logoColor=white" alt="TypeScript 7">
+  <img src="https://img.shields.io/badge/Vite-8-646CFF?style=for-the-badge&logo=vite&logoColor=white" alt="Vite 8">
+  <img src="https://img.shields.io/badge/Tailwind_CSS-4-06B6D4?style=for-the-badge&logo=tailwindcss&logoColor=white" alt="Tailwind CSS 4">
+  <img src="https://img.shields.io/badge/React_Router-7-CA4245?style=for-the-badge&logo=reactrouter&logoColor=white" alt="React Router 7">
+  <img src="https://img.shields.io/badge/Zustand-5-443E38?style=for-the-badge" alt="Zustand 5">
+  <img src="https://img.shields.io/badge/Vitest-5-6E9F18?style=for-the-badge&logo=vitest&logoColor=white" alt="Vitest 5">
+  <img src="https://img.shields.io/badge/Playwright-1-2EAD33?style=for-the-badge&logo=playwright&logoColor=white" alt="Playwright">
   <img src="https://img.shields.io/badge/License-MIT-green?style=for-the-badge" alt="MIT License">
 </p>
 
-A local-first CV/resume builder with a real renderer, complete content editing, and a live A4/Letter preview. Built with React 19, TypeScript, Vite and Tailwind 4.
+A local-first CV/resume builder with a real renderer, complete content editing, and a live A4/Letter preview.
 
 **Privacy:** documents are stored in this browser (IndexedDB). There is no server, account, analytics or upload.
 
