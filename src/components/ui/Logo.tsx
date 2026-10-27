@@ -22,10 +22,19 @@ export function Logo({
       )}
     >
       <img
+        src={`${import.meta.env.BASE_URL}logowhitemode.png`}
+        alt=""
+        className={cn(
+          'h-8 w-24 shrink-0 object-contain object-left dark:hidden',
+          compact && 'size-7',
+          large && 'h-auto w-40',
+        )}
+      />
+      <img
         src={`${import.meta.env.BASE_URL}logo.png`}
         alt=""
         className={cn(
-          'h-8 w-24 shrink-0 object-contain object-left',
+          'hidden h-8 w-24 shrink-0 object-contain object-left dark:block',
           compact && 'size-7',
           large && 'h-auto w-40',
         )}
